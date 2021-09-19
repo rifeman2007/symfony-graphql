@@ -1,0 +1,32 @@
+Mutation:
+    type: object
+    config:
+        fields:
+            NewUser:
+                type: "User"
+                resolve: "@=service('app.graphql.resolver.user').save(args)"
+                args:
+                    first_name:
+                        type: "String"
+                        description: "First Name of a User"
+                    last_name:
+                        type: "String"
+                        description: "Last Name of a User"
+            UpdateUser:
+                type: "User"
+                resolve: "@=service('app.graphql.resolver.user').update(args)"
+                args:
+                    id:
+                        type: "Int"  
+                    first_name:
+                        type: "String"
+                        description: "First Name of a User"
+                    last_name:
+                        type: "String"
+                        description: "Last Name of a User"            
+            RemoveUser:
+                type: "[User]"
+                resolve: "@=service('app.graphql.resolver.user').delete(args)"
+                args:
+                    id:
+                        type: "Int"  

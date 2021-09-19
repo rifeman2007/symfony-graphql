@@ -1,0 +1,14 @@
+User:
+    type: object
+    config:
+        description: "A user"
+        fields:
+            id:
+                type: "Int!"
+                description: "The unique ID of the user."
+            first_name:
+                type: "String"
+                description: "First Name of a User"
+            last_name:
+                type: "String"
+                description: "Last Name of a User"

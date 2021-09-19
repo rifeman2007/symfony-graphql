@@ -1,0 +1,18 @@
+Query:
+    type: object
+    config:
+        fields:
+            getUser:
+                type: "User"
+                args:
+                    id:
+                        description: "Resolves using the user id."
+                        type: "Int"
+                resolve: "@=service('app.graphql.resolver.user').find(args)"
+            getUsers:
+                type: "[User]"
+                args:
+                    limit:
+                        description: "limit"
+                        type: "Int"
+                resolve: "@=service('app.graphql.resolver.user').findAll(args)"

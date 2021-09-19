@@ -1,0 +1,33 @@
+Mutation:
+    type: object
+    config:
+        fields:
+            NewUser:
+                type: UserPayload!
+                resolve: "@=mutation('create_user', [args['input']['firstName'], args['input']['lastName']])"
+                args:
+                    input:
+                        type: UserInput!
+
+            RemoveUser:
+                type: "User"
+                resolve: "@=mutation('remove_user', [args['id']])"
+                args:
+                    id:
+                        type: "Int"          
+
+UserPayload:
+    type: object
+    config:
+        fields:
+            user:
+                type: "User"
+
+UserInput:
+    type: input-object
+    config:
+        fields:
+            firstName:
+                type: "String!"
+            lastName:
+                type: "String!"    
